@@ -1,0 +1,2 @@
+# EventApp
+Event aggregation app
