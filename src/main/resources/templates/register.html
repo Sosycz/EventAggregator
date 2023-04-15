@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="fragments/head.html :: header"></head>
+<body>
+<nav th:replace="fragments/navbar.html :: navbar"></nav>
+
+<form class="p-3 bg-light" method="post" th:object="${user}" th:action="@{/register}">
+
+    <div class="form-row">
+        <div class="form-group col-md-4" style="position: center">
+            <label for="userName">User name</label>
+            <input type="text" class="form-control" name="userName" id="userName" th:value="${user.userName}">
+            <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('userName')}"
+                 th:errors="*{userName}">can not be empty</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4" style="position: center">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" th:value="${user.password}">
+            <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('password')}"
+                 th:errors="*{password}">can not be empty</div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4" style="position: center">
+            <label for="passwordRetype">Repeat password</label>
+            <input type="password" class="form-control" style="box-sizing: border-box"  name="passwordRetype"
+                   id="passwordRetype"th:value="${user.passwordRetype}">
+            <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('passwordRetype')}"
+                 th:errors="*{passwordRetype}">can not be empty</div>
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4" style="position: center">
+            <label for="email">Email</label>
+            <input type="text" class="form-control"  name="email" id="email" th:value="${user.email}">
+            <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('email')}"
+                 th:errors="*{email}"></div>
+        </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+</body>
+</html>

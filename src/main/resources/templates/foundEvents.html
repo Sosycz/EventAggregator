@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head.html :: header"></head>
+<body>
+<nav th:replace="fragments/navbar.html :: navbar"></nav>
+<div class="container">
+    <div class="col-12">
+        <form method="post" th:action="@{/events/search/} + ${keywords.phrase}" th:object="${keywords}" class="form-inline my-2 my-lg-0">
+            <div style="text-align: center">
+                <input placeholder="search for events by title" id="keywords" type="text"  name="keywords"th:text="${keywords.phrase}">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-3">
+            <p class="font-weight-bold">Event title</p>
+        </div>
+        <div class="col-2"></div>
+
+        <div class="col-2">
+            <p class="font-weight-bold">Start date</p>
+        </div>
+
+        <div class="col-2">
+            <p class="font-weight-bold">End date</p>
+        </div>
+
+
+    </div>
+
+    <div class="mx-auto row text-center" th:each="event : ${foundEvents}">
+        <div class="col-3">
+            <img class="img-thumbnail"  th:src="@{${event.filePath}}" />
+        </div>
+        <div class="col-3" >
+            <p class="font-weight-bold" name="title" id="title" th:text="${event.title}"></p>
+        </div>
+
+        <div class="col-2" >
+            <button type="submit" class="btn btn-primary "><a style="color: white; text-decoration: none"
+                                                              th:href="@{/events/} + ${event.id}">View</a></button>
+        </div>
+
+        <div class="col-2">
+            <p class="font-weight-bold" th:text = "${event.endingTime}"></p>
+        </div>
+
+        <div class="col-2">
+            <p class="font-weight-bold" th:text = "${event.endingTime}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

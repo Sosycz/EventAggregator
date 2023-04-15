@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
+<head th:replace="fragments/head.html :: header"></head>
+<body>
+<nav th:replace="fragments/navbar.html :: navbar"></nav>
+
+<form class="p-3 bg-light" method="post" th:object="${event}" enctype="multipart/form-data" th:action="@{/addEvent}">
+
+    <div sec:authorize="hasAnyRole('ROLE_ORGANISER', 'ROLE_ADMIN')"  class="container" >
+        <div class="col-4">
+            <label for="title">Title</label>
+            <input id="title"  type="text" class="form-control" name="title"  th:value="${event.title}">
+                <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('title')}"
+                     th:errors="*{title}">
+
+                </div>
+
+
+        <div class="col 4">
+            <label for="startingTime">Start time</label>
+            <input id="startingTime" type="datetime-local"  name="startingTime" th:value="${event.startingTime}">
+                <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('startingTime')}"
+                 th:errors="*{startingTime}">
+             </div>
+        </div>
+        <div class="col 4">
+            <label for="endingTime">End time</label>
+            <input id = "endingTime" type="datetime-local" name="endingTime" th:value="${event.endingTime}">
+            <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('endingTime')}"
+                 th:errors="*{endingTime}">
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <label for="description">Description</label>
+        <input id = "description" type="text" class="form-control" name="description" th:value="${event.description}">
+        <div class="invalid-feedback" style="display: block" th:if="${#fields.hasErrors('description')}"
+        th:errors="*{description}">
+        </div>
+    </div>
+    <div class="container">
+
+        <label for="image">Upload an image to make your event more attractive for potential attenders</label>
+        <input id = "image" type="file" class="form-control" name="image" th:value="${event.image}" multiple="multiple">
+        <div class="invalid-feedback" style = "display: block" th:if="${#fields.hasErrors('image')}"
+             th:errors="*{image}">
+
+        </div>
+    </div >
+    <div style="text-align: center">
+        <button   type="submit" class="btn btn-primary ">Create event</button>
+    </div>
+    </div>
+
+</form>
+<div sec:authorize="hasRole('ROLE_USER')"><h1>You need an organiser role to add new event.</h1></div>
+</body>
+
+</html>
