@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-# EventApp
-Event aggregation app
-=======
 # Event Aggregator
 This application was an attempt of building of web service similar to MeetUp.
 
@@ -26,4 +22,3 @@ The data computed by this application was being stored in MySQL database
 while testing, therefore I had tounderstand the basic concepts of SQL and relational databases.
 
 
->>>>>>> Stashed changes
