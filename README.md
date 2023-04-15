@@ -12,6 +12,7 @@ MVC web application built with
 + create user account with assigned role
 + create, view and search for events
 + subscribe for event
++ comment an event
 
 
 
