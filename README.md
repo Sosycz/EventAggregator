@@ -2,7 +2,6 @@
 This application was an attempt of building of web service similar to MeetUp.
 
 ## What's in?
-
 MVC web application built with
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
@@ -11,13 +10,14 @@ MVC web application built with
   
 ## Functionalities
 + create user account with assigned role
-+ create, view and search for events
++ create, view, edit and search for events
 + subscribe for event
-
++ comment an event
 
 ## What have I learned?
 Working on this project gave me an insight on how client-server web applications work.
 I've explored the path of creating a simple REST-API from scratch and chained it with GUI.
-<<<<<<< HEAD
-The data computed by this application was being stored in MySQL database, therefore I had to
-understand the basic concepts of SQL and relational databases.
+The data computed by this application was being stored in MySQL database
+while testing, therefore I had to understand the basic concepts of SQL and relational databases.
+
+
