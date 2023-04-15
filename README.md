@@ -20,6 +20,6 @@ MVC web application built with
 Working on this project gave me an insight on how client-server web applications work.
 I've explored the path of creating a simple REST-API from scratch and chained it with GUI.
 The data computed by this application was being stored in MySQL database
-while testing, therefore I had tounderstand the basic concepts of SQL and relational databases.
+while testing, therefore I had to understand the basic concepts of SQL and relational databases.
 
 
